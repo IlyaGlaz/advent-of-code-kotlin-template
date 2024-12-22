@@ -4,12 +4,6 @@ import println
 import readInput
 import kotlin.math.abs
 
-fun main() {
-    val input = readInput("day01/Day01")
-    part1(getListOfPairs(input)).println()
-    part2(getListOfPairs(input)).println()
-}
-
 fun part1(list: List<Pair<Long, Long>>): Long {
     val (left, right) = list.unzip()
 
@@ -28,5 +22,11 @@ fun part2(list: List<Pair<Long, Long>>): Long {
     return result
 }
 
-fun getListOfPairs(input: List<String>): List<Pair<Long, Long>> =
+fun main() {
+    val input = readInput("day01/Day01")
+    part1(getListOfPairs(input)).println()
+    part2(getListOfPairs(input)).println()
+}
+
+private fun getListOfPairs(input: List<String>): List<Pair<Long, Long>> =
     input.map { line -> line.split("""\s+""".toRegex()).let { it[0].toLong() to it[1].toLong() } }
